@@ -137,4 +137,3 @@ Please report bugs or feature requests as issues in this repository. For securit
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more information.
-```
