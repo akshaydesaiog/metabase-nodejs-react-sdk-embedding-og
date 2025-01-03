@@ -1,0 +1,27 @@
+# Base image for the server
+FROM node:18
+
+# Set working directory for the server
+WORKDIR /app/server
+
+# Copy server files
+COPY server/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Install env-cmd globally
+RUN npm install -g env-cmd
+
+# Copy the server application files
+COPY server/ .
+
+# Copy the environment file
+COPY .env /app/server/.env
+
+# Expose the server port
+EXPOSE 4000
+
+# Start the server with env-cmd
+CMD ["env-cmd", "-f", ".env", "npm", "start"]
+
