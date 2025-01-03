@@ -3,11 +3,14 @@ Here's the formatted content for a `README.md` file:
 ```markdown
 # Metabase Embedding SDK for React Sample Application
 
-This repository contains a sample application demonstrating the use of the Metabase Embedding SDK with React. You can choose to set up the application using Docker or manually for local development.
+This repository contains a sample application demonstrating the use of the Metabase Embedding SDK with React. 
+You can choose to set up the application using Docker or manually for local development.
+
 
 > **Note:**  
-> This SDK is compatible with Metabase v1.50 or higher. You'll need a Pro or Enterprise version of Metabase up and running. If you're not sure where to start, sign up for [Pro Cloud](https://www.metabase.com/pricing).
-
+> This SDK is compatible with Metabase v1.50 or higher. You'll need a Pro or Enterprise version of Metabase up and running. 
+> If you're not sure where to start, sign up for [Pro Cloud](https://www.metabase.com/pricing).
+```
 ---
 
 ## Quick Start with Docker
@@ -18,6 +21,7 @@ If you prefer a containerized environment, follow these steps:
 
 - Install [Docker](https://docs.docker.com/get-docker/) on your system.
 
+---
 ### Steps
 
 1. **Clone the repository:**
@@ -28,7 +32,8 @@ If you prefer a containerized environment, follow these steps:
 
 2. **Copy the environment file:**
    ```bash
-   cp .env.example .env
+   cp .env.example client/.env
+   cp .env.example server/.env
    ```
 
 3. **Adjust URLs in `.env`:**
@@ -38,7 +43,13 @@ If you prefer a containerized environment, follow these steps:
 
 4. **Build and run the application using Docker Compose:**
    ```bash
-   docker-compose up --build
+   cd server
+   docker build -t metabase-embedding-server .
+   docker run -d -p 9090:9090 --name metabase-embedding-server metabase-embedding-server
+
+   cd ../client
+   docker build -t metabase-embedding-client .
+   docker run -d -p 3100:3100 --name metabase-embedding-client metabase-embedding-client
    ```
 
 5. **Access the application:**
