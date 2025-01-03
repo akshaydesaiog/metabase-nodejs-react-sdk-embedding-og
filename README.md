@@ -138,5 +138,3 @@ Please report bugs or feature requests as issues in this repository. For securit
 
 This project is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more information.
 ```
-
-This formatted version is ready to use as a `README.md` file and provides clear and organized instructions for both Docker and local setups. Let me know if you need further customization!
